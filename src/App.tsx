@@ -1,38 +1,24 @@
-import { useRef, useState } from 'react'
+import { useReducer } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import './App.css'
-import Hero from './components/Hero'
-import ImageCardContainer from './components/ImageCardContainer'
 import Modal from './components/Modal'
-import SearchBar from './components/SearchBar'
-// import LoaderGIF from './assets/loader.gif'
+import reducer, { initialState } from './reducer/reducer'
+import Home from './routes/Home'
+import Search from './routes/Search'
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(true)
-  const gallerySectionRef = useRef<HTMLElement>(null)
-
-  const gallerySectionIntoView = () => {
-    if (!gallerySectionRef) return
-
-    gallerySectionRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
-    <>
-      <Hero btnOnClick={gallerySectionIntoView} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search" element={<Search />} />
+      </Routes>
 
-      <section ref={gallerySectionRef} className="py-20 md:py-32 px-5">
-        <SearchBar />
-
-        <ImageCardContainer />
-
-        {/* {isLoading && (
-          <img src={LoaderGIF} alt='Loader' className='w-18 mx-auto mt-11' />
-        )} */}
-      </section>
-
-      <Modal />
-    </>
+      {state.isModalOpen && <Modal />}
+    </BrowserRouter>
   )
 }
 

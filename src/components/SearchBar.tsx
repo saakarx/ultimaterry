@@ -1,13 +1,23 @@
-import { SyntheticEvent, useState } from 'react'
+import { SyntheticEvent, useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 import { ReactComponent as SearchIcon } from '../assets/search.svg'
 
 const SearchBar = () => {
   const [searchText, setSearchText] = useState<string>('')
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  useEffect(() => {
+    const queryParam = searchParams.get('q')
+    if (queryParam) {
+      setSearchText(queryParam)
+    }
+  }, [])
 
   const formSubmit = (e: SyntheticEvent) => {
     e.preventDefault()
-    console.log(searchText)
+
+    setSearchParams({ q: searchText })
   }
 
   return (
