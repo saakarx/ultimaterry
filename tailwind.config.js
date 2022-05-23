@@ -20,7 +20,10 @@ module.exports = {
         sans: ['Montserrat', ...defaultTheme.fontFamily.sans]
       },
       gridTemplateColumns: { hero: '408px 1fr 408px' },
-      gridTemplateRows: { heroImage: '620px' },
+      gridTemplateRows: {
+        heroImage: 'minmax(300px, 550px)',
+        modal: 'auto 1fr auto'
+      },
       height: {
         'hero-image': 'calc(100% - 44px)'
       },
@@ -32,7 +35,6 @@ module.exports = {
       },
       width: {
         102: '25.5rem',
-        'bg-strip': 'calc(50% - 12px)',
         'hero-image': 'calc(100% - 44px)'
       }
     }

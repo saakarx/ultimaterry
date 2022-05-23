@@ -15,15 +15,12 @@ const Hero = ({ btnOnClick }: Props) => {
 
   return (
     <header className="bg-c-green-light md:bg-c-white text-c-black min-h-screen md:px-6">
-      <div className="max-w-6xl mx-auto grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-hero relative min-h-screen">
-        <div className="hidden md:block absolute top-0 left-0 w-bg-strip lg:w-102 h-full bg-c-green-light z-0"></div>
-
-        <div className="flex flex-col gap-12 h-full justify-end z-10 p-6 pb-14">
+      <div className="relative max-w-6xl mx-auto grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-hero relative min-h-screen">
+        <div className="flex flex-col gap-12 h-full justify-end z-10 p-6 pb-14 bg-c-green-light">
           <Image
             src={headingImage}
             altText="hero-image"
-            border
-            className="flex h-[332px] md:h-72 object-cover object-center"
+            className="flex h-[332px] md:h-72 object-cover object-center rounded-2xl"
           />
 
           <div className="space-y-4 md:space-y-6">
@@ -32,9 +29,9 @@ const Hero = ({ btnOnClick }: Props) => {
             </h1>
             <p>The ultimate image gallery</p>
             <button
-              className="flex items-center gap-3 rounded-2xl bg-c-green px-6 py-3 shadow-card"
+              className="flex items-center gap-3 bg-c-green px-6 py-3 shadow-card rounded-2xl outline-none focus:ring-2 ring-c-green-light"
               onClick={btnOnClick}>
-              Browse <RightArrowIcon />
+              Browse <RightArrowIcon className="stroke-c-black" />
             </button>
           </div>
         </div>
@@ -44,22 +41,20 @@ const Hero = ({ btnOnClick }: Props) => {
             <Image
               src={heroImage1}
               altText="image"
-              border
-              className="w-hero-image h-hero-image object-cover object-center col-start-1 row-start-1 self-start justify-self-start order-3"
+              className="w-hero-image h-hero-image object-cover object-center col-start-1 row-start-1 self-start justify-self-start order-3 rounded-2xl"
             />
 
-            <span className="block w-hero-image h-hero-image border-2 border-c-green col-start-1 row-start-1 self-center justify-self-center order-2"></span>
+            <span className="block w-hero-image h-hero-image border-2 border-c-green col-start-1 row-start-1 self-center justify-self-center order-2 rounded-2xl"></span>
 
             <Image
               src={heroImage2}
               altText="image"
-              border
-              className="w-hero-image h-hero-image object-cover object-center col-start-1 row-start-1 self-end justify-self-end order-1"
+              className="w-hero-image h-hero-image object-cover object-center col-start-1 row-start-1 self-end justify-self-end order-1 rounded-2xl"
             />
           </div>
         </div>
 
-        <span className="hidden lg:inline-block absolute right-1 top-1/2 -translate-y-1/2 uppercase tracking-widest rotate-90">
+        <span className="hidden lg:inline-block absolute -right-24 top-1/2 -translate-y-1/2 uppercase tracking-widest rotate-90">
           Scroll Down &rarr;
         </span>
       </div>

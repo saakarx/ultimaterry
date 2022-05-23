@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* body {
+  background-image: url('image ka path');
+  background-position: center;
+  background-size: cover;background-repeat: no-repeat;
+}
+
+.container {
+  background-image: url("C:\Users\Ajay\ Pratap\Desktop\the\ modern\ college.jpg");
+} */
